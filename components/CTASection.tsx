@@ -1,3 +1,29 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-export default function CTASection({ title = "Your Negombo adventure starts here", copy = "Explore the lagoon. Meet local fishermen. Chase the sunset." }: { title?: string; copy?: string }) { return <section className="bg-ocean py-20 text-white"><div className="container-wide flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"><div><p className="eyebrow mb-4 text-gold">Make it memorable</p><h2 className="display-title max-w-2xl text-5xl sm:text-6xl">{title}</h2><p className="mt-5 text-lg text-white/70">{copy}</p></div><Link href="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gold px-6 py-4 font-bold text-ink transition hover:bg-white">Book Your Tour <ArrowUpRight size={18} /></Link></div></section>; }
+export default function CTASection({
+  title = "Your Negombo adventure starts here",
+  copy = "Explore the lagoon. Meet local fishermen. Chase the sunset.",
+}: {
+  title?: string;
+  copy?: string;
+}) {
+  return (
+    <section className="bg-ocean py-20 text-white">
+      <div className="container-wide flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+        <div>
+          <p className="eyebrow text-gold mb-4">Make it memorable</p>
+          <h2 className="display-title max-w-2xl text-5xl sm:text-6xl">
+            {title}
+          </h2>
+          <p className="mt-5 text-lg text-white/70">{copy}</p>
+        </div>
+        <Link
+          href="/contact"
+          className="bg-gold text-ink inline-flex shrink-0 items-center gap-2 rounded-full px-6 py-4 font-bold transition hover:bg-white"
+        >
+          Book Your Tour <ArrowUpRight size={18} />
+        </Link>
+      </div>
+    </section>
+  );
+}

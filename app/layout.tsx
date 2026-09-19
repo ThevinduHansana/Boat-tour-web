@@ -13,8 +13,10 @@ const displayFont = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Negombo Lagoon Adventures | Boat Tours, Fishing Tours & Sunset Cruises",
-  description: "Discover Negombo Lagoon with unforgettable boat tours, fishing experiences and sunset cruises in Sri Lanka.",
+  title:
+    "Negombo Lagoon Adventures | Boat Tours, Fishing Tours & Sunset Cruises",
+  description:
+    "Discover Negombo Lagoon with unforgettable boat tours, fishing experiences and sunset cruises in Sri Lanka.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -23,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }
