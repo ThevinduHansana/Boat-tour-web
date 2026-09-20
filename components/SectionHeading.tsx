@@ -3,11 +3,13 @@ export default function SectionHeading({
   title,
   copy,
   light = false,
+  className,
 }: {
   eyebrow: string;
   title: string;
   copy?: string;
   light?: boolean;
+  className?: string;
 }) {
   return (
     <div className={light ? "text-white" : ""}>
@@ -16,9 +18,10 @@ export default function SectionHeading({
       {copy && (
         <p
           className={
-            light
+            (light
               ? "mt-5 max-w-xl text-lg leading-8 text-white/70"
-              : "text-ink/65 mt-5 max-w-xl text-lg leading-8"
+              : "text-ink/65 mt-5 max-w-xl text-lg leading-8") +
+            (className ? " " + className : "")
           }
         >
           {copy}

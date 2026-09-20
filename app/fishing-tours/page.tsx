@@ -9,7 +9,7 @@ import { images } from "@/lib/content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fishing Tour | Negombo Lagoon Adventures",
+  title: "Fishing Tour | Sunshine Boat Tours",
   description:
     "Experience a 3-hour fishing tour on Negombo Lagoon in Sri Lanka.",
 };

@@ -2,21 +2,15 @@ import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SiteShell from "@/components/SiteShell";
 import SectionHeading from "@/components/SectionHeading";
+import BookingForm from "@/components/BookingForm";
 import { images } from "@/lib/content";
+import { contact, whatsappLink } from "@/lib/contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Negombo Lagoon Adventures",
+  title: "Contact Us | Sunshine Boat Tours",
   description: "Send a booking request for your Negombo Lagoon adventure.",
 };
-
-const fields = [
-  ["Name", "Your name", "text"],
-  ["Email", "you@example.com", "email"],
-  ["Phone / WhatsApp", "Your number", "tel"],
-  ["Preferred date", "Select a date", "date"],
-  ["Number of guests", "How many people?", "number"],
-];
 
 export default function Contact() {
   return (
@@ -24,7 +18,7 @@ export default function Contact() {
       <PageHero
         title="Let’s plan your time on the lagoon"
         copy="Tell us what you have in mind and we will help you shape a relaxed, memorable experience in Negombo."
-        image={images.hero}
+        image={images.contact}
       />
       <section className="section-pad bg-foam">
         <div className="container-wide grid gap-14 lg:grid-cols-[1.1fr_.9fr]">
@@ -34,46 +28,7 @@ export default function Contact() {
               title="Start with a conversation."
               copy="No payment is required here. Send your preferences and we will reply with the details needed to plan your trip."
             />
-            <form className="mt-10 grid gap-5 sm:grid-cols-2">
-              <div className="sm:col-span-2">
-                <label className="mb-2 block text-sm font-bold" htmlFor="tour">
-                  Preferred tour
-                </label>
-                <select
-                  id="tour"
-                  className="border-ink/15 focus:border-lagoon w-full rounded-xl border bg-white px-4 py-3 outline-none"
-                >
-                  <option>Boat Tour</option>
-                  <option>Fishing Tour</option>
-                  <option>Sunset Cruise</option>
-                  <option>Private Lagoon Adventure</option>
-                </select>
-              </div>
-              {fields.map(([label, placeholder, type]) => (
-                <label key={label} className="grid gap-2 text-sm font-bold">
-                  {label}
-                  <input
-                    type={type}
-                    placeholder={placeholder}
-                    className="border-ink/15 placeholder:text-ink/35 focus:border-lagoon rounded-xl border bg-white px-4 py-3 font-normal outline-none"
-                  />
-                </label>
-              ))}
-              <label className="grid gap-2 text-sm font-bold sm:col-span-2">
-                Message
-                <textarea
-                  rows={5}
-                  placeholder="Tell us a little about your plans..."
-                  className="border-ink/15 placeholder:text-ink/35 focus:border-lagoon rounded-xl border bg-white px-4 py-3 font-normal outline-none"
-                />
-              </label>
-              <button
-                type="submit"
-                className="bg-gold text-ink hover:bg-lagoon inline-flex w-fit items-center gap-2 rounded-full px-6 py-4 font-bold transition hover:text-white"
-              >
-                Send Booking Request <ArrowUpRight size={18} />
-              </button>
-            </form>
+            <BookingForm />
           </div>
           <aside className="bg-ocean rounded-3xl p-8 text-white sm:p-10">
             <p className="eyebrow text-gold">Contact details</p>
@@ -83,23 +38,23 @@ export default function Contact() {
             <div className="mt-10 grid gap-6 text-sm text-white/75">
               <p className="flex gap-4">
                 <MapPin className="text-gold shrink-0" />
-                Negombo, Sri Lanka
+                {contact.address}
               </p>
               <p className="flex gap-4">
                 <Phone className="text-gold shrink-0" />
-                [ADD PHONE NUMBER]
+                {contact.phone}
               </p>
               <p className="flex gap-4">
                 <MessageCircle className="text-gold shrink-0" />
-                [ADD WHATSAPP NUMBER]
+                {contact.whatsapp}
               </p>
               <p className="flex gap-4">
                 <Mail className="text-gold shrink-0" />
-                [ADD EMAIL]
+                {contact.email}
               </p>
             </div>
             <a
-              href="https://wa.me/"
+              href={whatsappLink() ?? "https://wa.me/"}
               target="_blank"
               rel="noreferrer"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 font-bold text-white"
@@ -114,16 +69,16 @@ export default function Contact() {
           <SectionHeading
             eyebrow="Find us"
             title="Negombo, Sri Lanka"
-            copy="A map placeholder is ready for your Google Maps embed when the exact meeting point is confirmed."
+            copy="Placeholder pin below — swap the map query for your exact meeting point once it's confirmed."
           />
-          <div className="border-ink/20 bg-foam mt-10 grid min-h-72 place-items-center rounded-3xl border border-dashed text-center">
-            <div>
-              <MapPin className="text-lagoon mx-auto mb-3" size={30} />
-              <p className="font-bold">Google Maps integration placeholder</p>
-              <p className="text-ink/50 mt-2 text-sm">
-                Add your preferred meeting point here.
-              </p>
-            </div>
+          <div className="mt-10 min-h-72 overflow-hidden rounded-3xl">
+            <iframe
+              src="https://www.google.com/maps?q=Negombo+Lagoon,+Sri+Lanka&output=embed"
+              className="h-72 w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Negombo Lagoon location"
+            />
           </div>
         </div>
       </section>

@@ -7,10 +7,17 @@ import CTASection from "@/components/CTASection";
 import { images } from "@/lib/content";
 import { Metadata } from "next";
 
+const certifications = [
+  ["Life Saving", "Ocean University of Sri Lanka"],
+  [
+    "Outboard Engine Repair, Maintenance & Handling",
+    "Ocean University of Sri Lanka",
+  ],
+];
+
 export const metadata: Metadata = {
-  title: "About Us | Negombo Lagoon Adventures",
-  description:
-    "Meet the local people and values behind Negombo Lagoon Adventures.",
+  title: "About Us | Sunshine Boat Tours",
+  description: "Meet the local people and values behind Sunshine Boat Tours.",
 };
 
 export default function About() {
@@ -18,8 +25,9 @@ export default function About() {
     <SiteShell>
       <PageHero
         title="A local welcome on the water"
-        copy="Negombo Lagoon Adventures is built around a simple idea: the best experiences feel personal, thoughtful and connected to place."
-        image={images.lagoon}
+        copy="Sunshine Boat Tours is built around a simple idea: the best experiences feel personal, thoughtful and connected to place."
+        image={images.about}
+        className="object-top"
       />
       <section className="section-pad bg-foam">
         <div className="container-wide grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
@@ -37,7 +45,7 @@ export default function About() {
           </div>
           <div className="relative aspect-[.85] overflow-hidden rounded-3xl">
             <Image
-              src={images.canoe}
+              src={images.aboutSmall}
               alt="Boat on tropical water"
               fill
               className="object-cover"
@@ -88,18 +96,59 @@ export default function About() {
       </section>
       <section className="section-pad bg-foam">
         <div className="container-wide max-w-4xl">
-          <p className="eyebrow mb-4">Meet your local guide</p>
-          <h2 className="display-title text-5xl">Chanaka Mello</h2>
-          <p className="text-ink/70 mt-6 text-xl leading-9">
-            Business owner and local host. Chanaka brings a personal connection
-            to Negombo Lagoon and a warm, grounded approach to showing guests
-            the water.
-          </p>
-          <p className="text-ink/60 mt-5 leading-7">
-            Every trip is an opportunity to share the place responsibly, answer
-            questions honestly and create an experience that feels like your
-            own.
-          </p>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center">
+            <div className="flex-1">
+              <p className="eyebrow mb-4">Meet your local guide</p>
+              <h2 className="display-title text-5xl">Chanaka Mello</h2>
+              <p className="text-ink/70 mt-6 text-xl leading-9">
+                Business owner and local host. Chanaka brings a personal
+                connection to Negombo Lagoon and a warm, grounded approach to
+                showing guests the water.
+              </p>
+              <p className="text-ink/60 mt-5 leading-7">
+                Every trip is an opportunity to share the place responsibly,
+                answer questions honestly and create an experience that feels
+                like your own.
+              </p>
+            </div>
+            <div className="mx-auto w-full max-w-65 shrink-0 lg:mx-0">
+              <Image
+                src="/images/local-guide.jpeg"
+                alt="Chanaka Mello, your local guide"
+                width={224}
+                height={280}
+                className="aspect-4/5 w-full rounded-3xl object-cover"
+              />
+            </div>
+          </div>
+          <div className="max-w-4xl">
+            <p className="eyebrow mt-10 mb-4">Certified & trained</p>
+            <p className="text-ink/60 mb-6 leading-7">
+              With years of hands-on experience navigating the lagoon, Chanaka
+              pairs that local know-how with formal training, so you’re in safe,
+              capable hands from start to finish.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certifications.map(([title, issuer]) => (
+                <div
+                  key={title}
+                  className="border-gold/30 flex items-start gap-4 rounded-2xl border bg-white p-5"
+                >
+                  <Image
+                    src="/images/award.png"
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 shrink-0 object-contain"
+                  />
+                  <div>
+                    <p className="font-bold">{title}</p>
+                    <p className="text-ink/55 mt-1 text-sm">{issuer}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       <CTASection

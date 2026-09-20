@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -19,6 +20,7 @@ import SiteShell from "@/components/SiteShell";
 import SectionHeading from "@/components/SectionHeading";
 import ExperienceCards from "@/app/boat-tours/ExperienceCards";
 import { images } from "@/lib/content";
+import { whatsappLink } from "@/lib/contact";
 import { Metadata } from "next";
 
 const places = [
@@ -41,18 +43,30 @@ const inclusions = [
   [Sparkles, "Fresh Fruit Basket"],
   [Headphones, "JBL Music On Board"],
 ];
+const wildlife = [
+  [
+    "/images/animals/bird1.jpeg",
+    "Storks feeding across the shallow lagoon waters",
+  ],
+  ["/images/animals/bird2.jpeg", "Green bee-eaters resting along the canal"],
+  ["/images/animals/bird3.jpeg", "A parakeet spotted among the mangroves"],
+  [
+    "/images/animals/bird4.jpeg",
+    "The Sri Lanka Blue Magpie, a local favourite",
+  ],
+];
 const journey = [
-  "Hotel Pickup",
+  "Meet at the Boat Dock",
   "Dutch Canal",
   "Dutch Point",
   "Negombo Lagoon",
   "Wildlife Watching",
   "Monkey Island",
-  "Return to Hotel",
+  "Return to the Boat Dock",
 ];
 
 export const metadata: Metadata = {
-  title: "Negombo Lagoon Boat Tour | Negombo Lagoon Adventures",
+  title: "Negombo Lagoon Boat Tour | Sunshine Boat Tours",
   description:
     "Discover Dutch Canal, Dutch Point, Negombo Lagoon and local wildlife on a private boat tour for up to 6 guests.",
 };
@@ -136,7 +150,7 @@ export default function BoatTours() {
           <SectionHeading
             eyebrow="Choose your departure"
             title="A time that fits your day."
-            copy="Both options depart from and return to your hotel. The evening tour may offer the opportunity to enjoy sunset viewing."
+            copy="Both options start and end at our boat dock in Negombo. The evening tour may offer the opportunity to enjoy sunset viewing."
           />
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             <div className="rounded-3xl bg-white p-7 shadow-[0_15px_50px_rgba(9,44,59,.07)] sm:p-9">
@@ -147,13 +161,13 @@ export default function BoatTours() {
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="bg-foam rounded-2xl p-5">
                   <p className="text-ink/50 text-xs tracking-[.12em] uppercase">
-                    Departure from hotel
+                    Departure from dock
                   </p>
                   <p className="text-ocean mt-2 text-2xl font-bold">9:00 AM</p>
                 </div>
                 <div className="bg-foam rounded-2xl p-5">
                   <p className="text-ink/50 text-xs tracking-[.12em] uppercase">
-                    Return to hotel
+                    Return to dock
                   </p>
                   <p className="text-ocean mt-2 text-2xl font-bold">11:00 AM</p>
                 </div>
@@ -167,13 +181,13 @@ export default function BoatTours() {
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-white/10 p-5">
                   <p className="text-xs tracking-[.12em] text-white/55 uppercase">
-                    Departure from hotel
+                    Departure from dock
                   </p>
                   <p className="text-gold mt-2 text-2xl font-bold">4:00 PM</p>
                 </div>
                 <div className="rounded-2xl bg-white/10 p-5">
                   <p className="text-xs tracking-[.12em] text-white/55 uppercase">
-                    Return to hotel
+                    Return to dock
                   </p>
                   <p className="text-gold mt-2 text-2xl font-bold">6:30 PM</p>
                 </div>
@@ -211,13 +225,41 @@ export default function BoatTours() {
           </div>
         </div>
       </section>
+      <section className="section-pad bg-foam">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="Wildlife"
+            title="Birds you might spot along the way."
+            copy="The lagoon and its mangrove edges are home to a wide variety of birdlife, best seen with binoculars from the quiet of the boat."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {wildlife.map(([src, alt]) => (
+              <div
+                key={src}
+                className="relative aspect-[4/5] overflow-hidden rounded-3xl"
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <span className="from-ink/80 absolute inset-x-0 bottom-0 bg-linear-to-t to-transparent p-4 pt-10 text-sm text-white">
+                  {alt}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section-pad bg-ocean text-white">
         <div className="container-wide grid gap-14 lg:grid-cols-[.8fr_1.2fr]">
           <div>
             <SectionHeading
               eyebrow="Your journey"
               title="A simple route, beautifully experienced."
-              copy="Follow the journey from hotel pickup through the lagoon and back to your hotel."
+              copy="Follow the journey from our boat dock, through the lagoon, and back again."
               light
             />
             <Link
@@ -229,8 +271,8 @@ export default function BoatTours() {
           </div>
           <div className="relative border-l border-white/20 pl-8">
             {journey.map((stop, index) => (
-              <div key={stop} className="relative pb-8 last:pb-0">
-                <span className="border-gold bg-ocean text-gold absolute top-0 -left-[2.05rem] grid h-7 w-7 place-items-center rounded-full border text-xs font-bold">
+              <div key={stop} className="flex gap-4 pb-8 last:pb-0">
+                <span className="border-gold bg-ocean text-gold grid h-7 w-7 place-items-center rounded-full border text-xs font-bold">
                   {index + 1}
                 </span>
                 <p className="font-bold">{stop}</p>
@@ -252,8 +294,9 @@ export default function BoatTours() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
             <div>
               <SectionHeading
-                eyebrow="Whatâ€™s included"
-                title="Thoughtful essentials for the journey."
+                eyebrow="What&#39;s included"
+                title="Thoughtful essentials, provided for your journey."
+                copy="Everything below is included with your tour at no extra cost, so all you need to bring is yourself."
               />
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -300,7 +343,7 @@ export default function BoatTours() {
               Contact Us
             </Link>
             <a
-              href="https://wa.me/"
+              href={whatsappLink() ?? "https://wa.me/"}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 font-bold text-white"

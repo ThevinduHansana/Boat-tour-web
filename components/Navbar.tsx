@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { images } from "@/lib/content";
 const links = [
   ["Boat Tours", "/boat-tours"],
   ["Fishing Tours", "/fishing-tours"],
@@ -11,6 +14,8 @@ const links = [
 ];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href;
   return (
     <header className="absolute inset-x-0 top-0 z-40 text-white">
       <div className="container-wide flex h-24 items-center justify-between border-b border-white/20">
@@ -19,24 +24,33 @@ export default function Navbar() {
           className="flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          <span className="border-gold text-gold grid h-10 w-10 place-items-center rounded-full border text-sm font-bold">
-            NL
+          <span className="relative h-11 w-11 shrink-0">
+            <Image
+              src={images.logo}
+              alt="Sunshine Boat Tours logo"
+              fill
+              className="object-contain"
+              sizes="44px"
+            />
           </span>
           <span className="hidden text-[.68rem] leading-tight font-bold tracking-[.2em] sm:block">
-            NEGOMBO LAGOON
+            SUNSHINE
             <br />
-            ADVENTURES
+            BOAT TOURS
           </span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm font-medium lg:flex">
-          <Link href="/" className="hover:text-gold text-white/75 transition">
+          <Link
+            href="/"
+            className={`hover:text-gold transition ${isActive("/") ? "text-gold" : "text-white/75"}`}
+          >
             Home
           </Link>
           {links.map(([label, href]) => (
             <Link
               key={href}
               href={href}
-              className="hover:text-gold text-white/75 transition"
+              className={`hover:text-gold transition ${isActive(href) ? "text-gold" : "text-white/75"}`}
             >
               {label}
             </Link>
@@ -60,7 +74,12 @@ export default function Navbar() {
         <div className="bg-ink/95 absolute inset-x-0 top-24 border-b border-white/10 px-6 py-6 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-5 text-lg">
             {[["Home", "/"], ...links].map(([label, href]) => (
-              <Link key={href} href={href} onClick={() => setOpen(false)}>
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setOpen(false)}
+                className={isActive(href) ? "text-gold" : undefined}
+              >
                 {label}
               </Link>
             ))}

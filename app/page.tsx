@@ -11,6 +11,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import BackToTopButton from "@/components/BackToTopButton";
 import SectionHeading from "@/components/SectionHeading";
 import CTASection from "@/components/CTASection";
 import { galleryItems, images } from "@/lib/content";
@@ -56,7 +57,7 @@ export default function Home() {
           <div className="container-wide relative">
             <div className="max-w-3xl">
               <p className="text-gold mb-6 text-xs font-bold tracking-[.24em]">
-                NEGOMBO LAGOON ADVENTURES
+                SUNSHINE BOAT TOURS
               </p>
               <h1 className="display-title text-6xl sm:text-8xl">
                 Discover Negombo
@@ -96,11 +97,11 @@ export default function Home() {
               title="A slower, more meaningful way to meet Negombo."
               copy="This is more than a boat ride. It is an invitation to notice the details: the colour of the water, the call of a bird, the warmth of a local welcome."
             />
-            <div className="bg-ink/10 mt-14 grid gap-px overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white sm:grid-cols-2 lg:grid-cols-4">
               {reasons.map(([Icon, title, copy]) => (
                 <div
                   key={title as string}
-                  className="bg-foam hover:bg-sand p-7 transition"
+                  className="hover:bg-sand bg-white p-7 transition"
                 >
                   <Icon
                     className="text-lagoon mb-12"
@@ -120,7 +121,7 @@ export default function Home() {
         </section>
         <section className="section-pad bg-foam">
           <div className="container-wide grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
-            <div className="relative aspect-[.9] overflow-hidden rounded-[2rem]">
+            <div className="relative aspect-[.9] overflow-hidden rounded-4xl">
               <Image
                 src={images.lagoon}
                 alt="Peaceful tropical lagoon landscape"
@@ -203,7 +204,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
               {galleryItems
                 .filter((item) => item.type === "image")
-                .slice(0, 6)
+                .slice(0, 5)
                 .map((item, i) => (
                   <Link
                     href="/gallery"
@@ -232,6 +233,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <BackToTopButton />
     </>
   );
 }

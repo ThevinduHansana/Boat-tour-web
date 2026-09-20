@@ -4,18 +4,26 @@ export default function PageHero({
   title,
   copy,
   image,
+  className,
 }: {
   title: string;
   copy: string;
   image: string;
+  className?: string;
 }) {
   return (
     <section className="bg-ink relative flex min-h-[58vh] items-end overflow-hidden pt-36 pb-16 text-white">
       <Navbar />
-      <Image src={image} alt="" fill className="object-cover" sizes="100vw" />
+      <Image
+        src={image}
+        alt=""
+        fill
+        className={`object-cover ${className ?? ""}`}
+        sizes="100vw"
+      />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,29,41,.85),rgba(4,29,41,.25)),linear-gradient(0deg,rgba(4,29,41,.85),transparent)]" />
       <div className="container-wide relative">
-        <p className="eyebrow text-gold mb-5">Negombo Lagoon Adventures</p>
+        <p className="eyebrow text-gold mb-5">Sunshine Boat Tours</p>
         <h1 className="display-title max-w-3xl text-6xl sm:text-8xl">
           {title}
         </h1>

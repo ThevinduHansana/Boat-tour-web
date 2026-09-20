@@ -1,67 +1,14 @@
 export const images = {
-  hero: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2200&q=85",
+  logo: "/Logo.png",
+  hero: "/images/home.jpg",
+  contact: "/images/contact.jpg",
+  about: "/images/about.jpg",
   lagoon: "/images/negamboo lagoon.jpg",
-  boat: "https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1200&q=85",
+  boat: "/images/boat.jpg",
   fishing: "/images/fishing.jpg",
-  mangrove:
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
-  sunset:
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85",
-  nature:
-    "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=85",
-  canoe:
-    "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=85",
+  aboutSmall: "/images/about-small.jpg",
 };
-export const tours = [
-  {
-    title: "Lagoon Explorer",
-    type: "Boat tour",
-    image: images.boat,
-    description:
-      "Glide through quiet waterways and discover the everyday rhythm of life on the lagoon.",
-    duration: "Duration to be confirmed",
-    bestFor: "Curious travellers and first-time visitors",
-    highlights: [
-      "Scenic lagoon routes",
-      "Local stories",
-      "Small-group comfort",
-    ],
-  },
-  {
-    title: "Mangrove & Wildlife",
-    type: "Boat tour",
-    image: images.mangrove,
-    description:
-      "Follow green channels into the lagoon’s wilder corners, with time to notice birdlife and mangrove ecosystems.",
-    duration: "Duration to be confirmed",
-    bestFor: "Nature lovers and photographers",
-    highlights: ["Mangrove waterways", "Birdwatching", "Peaceful pace"],
-  },
-  {
-    title: "Sunset Lagoon Cruise",
-    type: "Sunset cruise",
-    image: images.sunset,
-    description:
-      "Let the day soften around you as warm light settles over the water and fishing boats return home.",
-    duration: "Duration to be confirmed",
-    bestFor: "Couples, families and sunset seekers",
-    highlights: ["Golden-hour views", "Relaxed cruise", "Photography moments"],
-  },
-  {
-    title: "Private Lagoon Adventure",
-    type: "Private experience",
-    image: images.canoe,
-    description:
-      "Shape a slower, more personal day on the water around the interests and pace of your group.",
-    duration: "Duration to be confirmed",
-    bestFor: "Private groups and families",
-    highlights: [
-      "Flexible itinerary",
-      "Private boat",
-      "Personalised experience",
-    ],
-  },
-];
+
 const galleryFiles = [
   "1.jpeg",
   "44.mp4",

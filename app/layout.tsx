@@ -13,8 +13,7 @@ const displayFont = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Negombo Lagoon Adventures | Boat Tours, Fishing Tours & Sunset Cruises",
+  title: "Sunshine Boat Tours | Boat Tours, Fishing Tours & Sunset Cruises",
   description:
     "Discover Negombo Lagoon with unforgettable boat tours, fishing experiences and sunset cruises in Sri Lanka.",
 };
