@@ -69,17 +69,25 @@ export default function Contact() {
           <SectionHeading
             eyebrow="Find us"
             title="Negombo, Sri Lanka"
-            copy="Placeholder pin below — swap the map query for your exact meeting point once it's confirmed."
+            copy="Tap the map, or the link below it, to open our exact meeting point in Google Maps."
           />
           <div className="mt-10 min-h-72 overflow-hidden rounded-3xl">
             <iframe
-              src="https://www.google.com/maps?q=Negombo+Lagoon,+Sri+Lanka&output=embed"
+              src="https://www.google.com/maps?q=7.210940837860107,79.83863830566406&z=17&output=embed"
               className="h-72 w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Negombo Lagoon location"
             />
           </div>
+          <a
+            href="https://maps.app.goo.gl/hPTYDxYm7Do1aBiT6"
+            target="_blank"
+            rel="noreferrer"
+            className="text-ocean hover:text-lagoon mt-4 inline-flex items-center gap-2 font-bold"
+          >
+            Open in Google Maps <ArrowUpRight size={16} />
+          </a>
         </div>
       </section>
     </SiteShell>

@@ -18,7 +18,7 @@ export default function Gallery() {
         title="Scenes from the lagoon"
         copy="A visual journal of calm waterways, working boats, mangrove edges and the light that changes everything."
         image={"/images/gallery/40.jpeg"}
-        className="scale-x-[-1] object-[center_-600px]"
+        className="scale-x-[-1] object-[center_40%]"
       />
       <section className="section-pad bg-foam">
         <div className="container-wide">
