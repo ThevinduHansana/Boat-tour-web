@@ -10,6 +10,7 @@ export const images = {
 };
 
 const galleryFiles = [
+  "V1.mp4",
   "1.jpeg",
   "44.mp4",
   "10.jpeg",
